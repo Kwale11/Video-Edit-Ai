@@ -1,0 +1,2 @@
+@Component 이 클래스를 Spring이 관리하는 객체(Bean)으로 등록
+@Service 서비스 계층용 기본역할은 Component와 같음. 클래스를 Bean으로 등록함

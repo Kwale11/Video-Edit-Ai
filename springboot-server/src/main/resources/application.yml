@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: springboot-server
+
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+
+openai:
+  api-key: ${OPENAI_API_KEY}
+  base-url: https://api.openai.com
+#OPENAI_API_KEY는 key값을 그대로 쓰면 깃허브에 노출되므로 환경변수로 사용하자
+
+app:
+  frontend-origin: ${FRONTEND_ORIGIN:http://localhost:5173}
+  ffmpeg-path: ${FFMPEG_PATH:ffmpeg}
+  ffprobe-path: ${FFPROBE_PATH:ffprobe}

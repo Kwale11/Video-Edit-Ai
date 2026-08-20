@@ -1,0 +1,35 @@
+@RestControllerAdvice 여러 @RestController에서 발생하는 예외를 한 곳에서 공통으로 처리하도록 만들어주는
+어노테이션
+
+@ExceptionHandler 특정 Exception이 발생했을 때 실행할 메서드를 지정하는 어노테이션
+
+보통 @RestControllerAdvice 얘로 감싸서 @ExceptionHandler얘 여러개 하위에 둠
+
+HTTP 상태코드
+1xx Informational 요청처리중
+2xx Success 요청성공
+3xx Redirection 다른곳으로 이동
+4xx Client Error 클라이언트 요청에 문제(프론트 쪽 에러)
+5xx Server Error 서버 처리중 문제 (백엔드 쪽 문제)
+
+100 Continue 클라이언트가 큰 요청 보낼때 서버가 계속 요청 보내도 된다고 알려주는 용도
+200 ok 성공 코드
+201 created 새로운 데이터 성공적으로 생성
+204 No content 요청은 성공했는데 응답Body로 돌려줄 데이터가 없다는 뜻
+301 Moved Permanently 주소가 영구적으로 변경됨
+302 Found 임시로 다르눚소로 이동시키는 경우
+304 Not Modified 캐시와 관련해서 파일이 최신인지 물었을떄 서버가 변경이 안됐으니 기존 캐시 쓰라는뜻
+400 Bad Request 서버가 요청을 이해할 수는 있지만 요청내용이 올바르지 않음(이메일이 비었거나 비밀번호 형식이 잘못됨)
+401 Unauthorized 인증이 되어있지않음 (로그인/인증 자체 x)
+403 Forbidden 누구인지는 알지만 작업할 권한이 없음(로그인o, 권한x)
+404 Not Found  요청한 리소스를 찾을수 없음
+405 Method Not Allowed 주소 자체는 존재하지만 HTTP Method가 잘못됨
+409 Conflict 현재 서버의 데이터 상태와 요청이 충돌하는 경우
+413 Content Too Large 요청 Body가 서버가 허용하는 크기보다 큼
+415 Unsupported Media Type 서버가 해당 데이터 형식을 지원하지 않는 경우
+422 Unprocessable Content 문법 자체는 정상인데 내용을 처리할수없는 경우
+429 Too Many Requests 요청을 너무 많이 보냄
+500 Internal Server Error 서버 내부에서 예상치 못한 오류 발생
+502 Bad GateWay 중간서버가 다른서버에 요청했는데 뒤쪽 서버로부터 정상적인 응답을 받지 못함
+503 Service Unavailabe 서버가 현재 요청을 처리 할 수 없음
+504 Gateway Timeout Gateway나 Proxy가 뒤쪽 서버에 요청했는데 응답을 기다리다가 시간 초과된 경우

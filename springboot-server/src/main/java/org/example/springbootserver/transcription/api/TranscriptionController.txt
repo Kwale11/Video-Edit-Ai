@@ -1,0 +1,22 @@
+@RestController : REST API요청을 처리하는 Controller, 이 클래스에 HTTP 요청을 처리하는 메서드들이 있다는것을 알려줌
+@Controller와 @RestController와의 차이는 Controller는 전통적인 MVC에서 HTML화면을 반환할떄 주로 사용하는
+반면에 RestController는 데이터 자체(JSON,String 등)dmf HTTP응답으로 변환하는 REST API를 만들떄 사용함
+@RequestMapping 요청 URl경로를 지정하는 어노테이션
+@PostMapping  HTTP의 POST요청을 특정 메서드와 연결하는 어노테이션
+@RequestParam URL의 쿼리 파라미터를 가져올떄 사용함
+@RequestParam(defaultValue = "0") int page 처럼 기본값 설정도 가능함
+@RequestPart 중요함! 주로 multipart/from-data 요청으 ㅣ특정 PArt를 받을때 사용함
+대표적인게 파일업로드
+리액트에서  아래와 같은 데이터를 보내면
+video: video.mp4
+title: 여행 영상
+
+SPringBoot에서 아래와같이 파일을 받음
+@PostMapping("/upload")
+public String upload(
+    @RequestPart("video") MultipartFile video
+) {
+    ...
+}
+
+여기서 multipart요청중 "video"라는 이름의 Part를 가져오라는 뜻
